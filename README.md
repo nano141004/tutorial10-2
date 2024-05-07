@@ -17,4 +17,20 @@ Pada server dapat dilihat setiap kali ada client yang jalan dan connect ke serve
 
 ## 2.2
 
-Pada client menggunakan websocket, tapi pada server menggunakan TCP. TCP sendiri adalah dasar dari websocket. 
+Pada client menggunakan websocket, tapi pada server menggunakan TCP. TCP sendiri adalah dasar dari websocket.
+
+## 2.3
+
+server:
+    ![ss5](images/ss5.png)
+
+client 1:
+    ![ss6](images/ss6.png)
+
+client 2:
+    ![ss7](images/ss7.png)
+
+Pada server.rs dimodifikasi bagian untuk mengembalikan pesan kepada client menjadi : 
+    let message = format!("{addr}: {text}");
+    bcast_tx.send(message.into())?;
+Yang sebelumnya hanya isi pesan saja yaitu text, sekarang ditambahkan dengan ip client yaitu addr. 
